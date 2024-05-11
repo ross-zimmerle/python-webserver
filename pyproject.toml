@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pythonserver"
+version = "0.1.0"
+description = "A Python package with a built-in web application"
+authors = ["Ross Zimmerle <rosszimmerle@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.scripts]
+dev = "pythonserver.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.4"
+
+
+
+[tool.ruff]
+line-length = 120
