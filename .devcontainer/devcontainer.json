@@ -3,22 +3,33 @@
 {
   "name": "Python server",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "build": {
-    "dockerfile": "Dockerfile"
-    // Update 'VARIANT' to pick a non-default Dockerfile variant.
-    // "args": { "VARIANT": "buster" }
-  },
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  //   // Update 'VARIANT' to pick a non-default Dockerfile variant.
+  //   // "args": { "VARIANT": "buster" }
+  // },
 
   // Or use docker-compose file.
-  // "dockerComposeFile": ["docker-compose.yml"],
-  // "service": "devcontainer",
-  // "workspaceFolder": "/app",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [3000],
+  // "forwardPorts": [3000],
+
+  // Use 'portsAttributes' to set default properties for specific forwarded ports. 
+	// More info: https://containers.dev/implementors/json_reference/#port-attributes
+  // "portsAttributes": {
+	// 	"3000": {
+	// 		"label": "Hello Remote World",
+	// 		"onAutoForward": "notify"
+	// 	}
+	// },
 
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "poetry install"
